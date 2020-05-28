@@ -1,7 +1,7 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
-import module_portfolio_new
-from module_portfolio_new import portfolio
+import module_portfolio_new_1
+from module_portfolio_new_1 import portfolio
 
 n = 2
 mean = [18, 24]
