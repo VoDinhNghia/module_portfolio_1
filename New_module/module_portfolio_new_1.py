@@ -1,6 +1,6 @@
 import numpy as np 
 
-W = np.arange(-0.5, 1.51, 0.01)
+W = np.arange(0, 1.01, 0.01)
 
 class portfolio:
     #n: số asset, mean: danh sách các mean (mean1, mean2, mean3....), stdev: (stdev1, stdev2, stdev3...), corr: (corr12, corr13, corr14, corr23, corr24, corr34...)
