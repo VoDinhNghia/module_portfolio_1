@@ -718,9 +718,18 @@ class portfolio:
         mean_frontier = []
         stdev_frontier = []
         for w in W:
-            mean_f = w*mini_mean + (1-w)*max_mean
-            mean_frontier.append(mean_f)
-            stdev_f = round(np.sqrt(pow(w,2)*pow(minimun_std,2) + 2*w*(1-w)*(0.7*minimun_std*value_max_std) + pow((1-w),2)*pow(value_max_std,2)),2)
-            stdev_frontier.append(stdev_f)
+            if(((mean.index(max(mean))==0) and (stdev.index(min(stdev))==0)) or ((mean.index(max(mean))==1) and (stdev.index(min(stdev))==1))):
+                mean_f = w*mini_mean + (1-w)*max_mean
+                mean_frontier.append(mean_f)
+                stdev_f = round(np.sqrt(pow(w,2)*pow(minimun_std,2) + 2*w*(1-w)*(0.9*minimun_std*value_max_std) + pow((1-w),2)*pow(value_max_std,2)),2)
+                stdev_frontier.append(stdev_f)
+            else:
+                mean_f = w*mini_mean + (1-w)*max_mean
+                mean_frontier.append(mean_f)
+                stdev_f = round(np.sqrt(pow(w,2)*pow(minimun_std,2) + 2*w*(1-w)*(0.7*minimun_std*value_max_std) + pow((1-w),2)*pow(value_max_std,2)),2)
+                stdev_frontier.append(stdev_f)
+                
         index_std_mini = stdev_frontier.index(min(stdev_frontier))
         return stdev_frontier[0:index_std_mini], mean_frontier[0:index_std_mini]
+    
+    
