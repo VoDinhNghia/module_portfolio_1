@@ -709,6 +709,8 @@ class portfolio:
             return mini_risk, value_mean_mini
     # trả về list stdev và return để vẽ efficent frontier
     def frontier_eff(self):
+        arr_mean = self.compution_mean()
+        arr_stdev = self.compution_stdev() 
         mean = self.mean
         stdev = self.stdev
         max_mean = max(mean)
@@ -717,19 +719,18 @@ class portfolio:
         minimun_std, mini_mean = self.minimum_risk()
         mean_frontier = []
         stdev_frontier = []
-        for w in W:
+        if(self.n ==2):
             if(((mean.index(max(mean))==0) and (stdev.index(min(stdev))==0)) or ((mean.index(max(mean))==1) and (stdev.index(min(stdev))==1))):
-                mean_f = w*mini_mean + (1-w)*max_mean
-                mean_frontier.append(mean_f)
-                stdev_f = round(np.sqrt(pow(w,2)*pow(minimun_std,2) + 2*w*(1-w)*(0.9*minimun_std*value_max_std) + pow((1-w),2)*pow(value_max_std,2)),2)
-                stdev_frontier.append(stdev_f)
+                return arr_stdev[arr_stdev.index(minimun_std):-1], arr_mean[arr_mean.index(mini_mean):-1]
             else:
+                return arr_stdev[0:arr_stdev.index(minimun_std)], arr_mean[0:arr_mean.index(mini_mean)]
+        else:
+            for w in W:
                 mean_f = w*mini_mean + (1-w)*max_mean
                 mean_frontier.append(mean_f)
                 stdev_f = round(np.sqrt(pow(w,2)*pow(minimun_std,2) + 2*w*(1-w)*(0.7*minimun_std*value_max_std) + pow((1-w),2)*pow(value_max_std,2)),2)
                 stdev_frontier.append(stdev_f)
-                
+            
         index_std_mini = stdev_frontier.index(min(stdev_frontier))
         return stdev_frontier[0:index_std_mini], mean_frontier[0:index_std_mini]
-    
     
