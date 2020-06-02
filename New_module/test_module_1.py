@@ -4,9 +4,9 @@ import module_portfolio_new_1
 from module_portfolio_new_1 import portfolio
 
 n = 2
-mean = [20, 24]
+mean = [24, 20]
 stdev = [6, 8]
-corr = [0.3]  
+corr = [-0.1]  
 ar_mean = portfolio(n, mean, stdev, corr).compution_mean()
 ar_stdev = portfolio(n, mean, stdev, corr).compution_stdev()
 minimum_std, mean_mini_std = portfolio(n, mean, stdev, corr).minimum_risk()
