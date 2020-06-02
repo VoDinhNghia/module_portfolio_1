@@ -720,7 +720,7 @@ class portfolio:
         mean_frontier = []
         stdev_frontier = []
         if(self.n ==2):
-            if(((mean.index(max(mean))==0) and (stdev.index(min(stdev))==0)) or ((mean.index(max(mean))==1) and (stdev.index(min(stdev))==1))):
+            if(((mean.index(max(mean))==0) and (stdev.index(min(stdev))==0))):
                 return arr_stdev[arr_stdev.index(minimun_std):-1], arr_mean[arr_mean.index(mini_mean):-1]
             else:
                 return arr_stdev[0:arr_stdev.index(minimun_std)], arr_mean[0:arr_mean.index(mini_mean)]
@@ -731,8 +731,8 @@ class portfolio:
                 stdev_f = round(np.sqrt(pow(w,2)*pow(minimun_std,2) + 2*w*(1-w)*(0.7*minimun_std*value_max_std) + pow((1-w),2)*pow(value_max_std,2)),2)
                 stdev_frontier.append(stdev_f)
             
-        index_std_mini = stdev_frontier.index(min(stdev_frontier))
-        return stdev_frontier[0:index_std_mini], mean_frontier[0:index_std_mini]
+            index_std_mini = stdev_frontier.index(min(stdev_frontier))
+            return stdev_frontier[0:index_std_mini], mean_frontier[0:index_std_mini]
     def point_M(self):
         r_free = 18
         arr_mean = self.compution_mean()
@@ -743,10 +743,16 @@ class portfolio:
             ratio = (m - r_free)/arr_stdev[arr_mean.index(m)]
             arr_ratio.append(ratio)
         max_ratio = max(arr_ratio)
-        index_M = arr_ratio.index(max_ratio)
-        value_M_mean = arr_mean[index_M]
-        value_M_std = arr_stdev[index_M]
-        return value_M_std, value_M_mean
+        if(((mean.index(max(mean))==0) and (stdev.index(min(stdev))==0))):
+            index_M = arr_ratio.index(max_ratio)
+            value_M_mean = arr_mean[100-index_M]
+            value_M_std = arr_stdev[100-index_M]
+            return value_M_std, value_M_mean
+        else:
+            index_M = arr_ratio.index(max_ratio)
+            value_M_mean = arr_mean[index_M]
+            value_M_std = arr_stdev[index_M]
+            return value_M_std, value_M_mean
 
     def CML(self):
         M_std, M_mean = self.point_M()
