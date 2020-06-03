@@ -735,30 +735,22 @@ class portfolio:
             return stdev_frontier[0:index_std_mini], mean_frontier[0:index_std_mini]
     def point_M(self):
         r_free = 18
-        arr_mean = self.compution_mean()
-        arr_stdev = self.compution_stdev() 
-        mean_frontier = self.frontier_eff()[1]
+        stdev_frontier ,mean_frontier = self.frontier_eff()
         arr_ratio = []
         for m in mean_frontier:
-            ratio = (m - r_free)/arr_stdev[arr_mean.index(m)]
+            ratio = (m - r_free)/stdev_frontier[mean_frontier.index(m)]
             arr_ratio.append(ratio)
         max_ratio = max(arr_ratio)
-        if(((mean.index(max(mean))==0) and (stdev.index(min(stdev))==0))):
-            index_M = arr_ratio.index(max_ratio)
-            value_M_mean = arr_mean[100-index_M]
-            value_M_std = arr_stdev[100-index_M]
-            return value_M_std, value_M_mean
-        else:
-            index_M = arr_ratio.index(max_ratio)
-            value_M_mean = arr_mean[index_M]
-            value_M_std = arr_stdev[index_M]
-            return value_M_std, value_M_mean
+        index_M = arr_ratio.index(max_ratio)
+        value_M_mean = mean_frontier[index_M]
+        value_M_std = stdev_frontier[index_M]
+        return value_M_std, value_M_mean
 
     def CML(self):
         M_std, M_mean = self.point_M()
         r_free = 18  
         arr_mean_cml = []
-        std_exp = np.arange(0, 8, 0.5)
+        std_exp = np.arange(0, 6.5, 0.5)
         for x in std_exp:
             mean_exp = r_free + (x*(M_mean-r_free))/M_std
             arr_mean_cml.append(mean_exp)
