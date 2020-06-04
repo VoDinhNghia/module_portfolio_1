@@ -757,6 +757,8 @@ class portfolio:
         return std_exp, arr_mean_cml
 
 # Class n assets
+#file test module: test_n_assets.py
+#corr nhập vào là maxtrix đối xứng qua đường chéo chính và các giá trị trên đường chéo chính đều bằng 1
 class portfolio_n_assets:
     def __init__(self, n, mean, stdev, corr):
         self.n = n
