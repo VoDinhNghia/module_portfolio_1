@@ -755,3 +755,55 @@ class portfolio:
             mean_exp = r_free + (x*(M_mean-r_free))/M_std
             arr_mean_cml.append(mean_exp)
         return std_exp, arr_mean_cml
+
+# Class n assets
+class portfolio_n_assets:
+    def __init__(self, n, mean, stdev, corr):
+        self.n = n
+        self.mean = mean
+        self.stdev = stdev
+        self.corr = corr
+   
+    def random(self):
+        mean = np.array(self.mean)
+        stdev = np.array(self.stdev)
+        corr = np.array(self.corr)
+        arr_mean_rd = []
+        arr_std_rd = []
+        
+        for p in range (1500):
+            w = np.random.random(self.n)
+            w /= np.sum(w)
+            arr_mean_rd.append(np.dot(mean ,w.T))
+            arr_std_rd.append(np.sqrt(np.dot(w,np.dot(np.dot(stdev,np.dot(corr, stdev.T)), w.T))))
+        return arr_std_rd, arr_mean_rd  
+    
+    def minimum(self):
+        ar_std, ar_mean = self.random()
+        std_minimum = min(ar_std)
+        mean_minimum = ar_mean[ar_std.index(std_minimum)]
+        return std_minimum, mean_minimum
+        
+    def Market_portfolio(self):
+        ar_std, ar_mean = self.random()
+        risk_free = 18
+        shape_ratio = []
+        for m in ar_mean:
+            shape_ratio.append((m - risk_free)/ar_std[ar_mean.index(m)])
+        max_ratio = max(shape_ratio)
+        index_M = shape_ratio.index(max_ratio)
+        value_M_mean = ar_mean[index_M]
+        value_M_std = ar_std[index_M]
+        return value_M_std, value_M_mean
+
+    def capital_market_line(self):
+        M_std, M_mean = self.Market_portfolio()
+        r_free = 18  
+        arr_mean_cml = []
+        std_exp = np.arange(0, 7, 0.5)
+        for x in std_exp:
+            mean_exp = r_free + (x*(M_mean-r_free))/M_std
+            arr_mean_cml.append(mean_exp)
+        return std_exp, arr_mean_cml
+    
+    
