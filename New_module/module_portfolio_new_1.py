@@ -77,96 +77,24 @@ class portfolio:
             mean_n = w*x + (1-w)*y
             return round(mean_n,2)     
 
-        m12 = []
-        m13 = []
-        m14 = []
-        m15 = []
-        m16 = [] 
-        m23 = []
-        m24 = []
-        m25 = []
-        m26 = []
-        m34 = [] 
-        m35 = []
-        m36 = []
-        m45 = []
-        m46 = []
-        m56 = []
-        m17 = []
-        m27 = []
-        m37 = []
-        m47 = []
-        m57 = []
-        m67 = []
-        m18 = []
-        m28 = []
-        m38 = []
-        m48 = []
-        m58 = []
-        m68 = []
-        m78 = []
-        m19 = []
-        m29 = []
-        m39 = []
-        m49 = []
-        m59 = []
-        m69 = []
-        m79 = []
-        m89 = []
-        m110 = []
-        m210 = []
-        m310 = []
-        m410 = []
-        m510 = []
-        m610 = []
-        m710 = []
-        m810 = []
+        m12,m13,m14,m15,m16,m17,m18,m19,m110 = [],[],[],[],[],[],[],[],[]
+        m23,m24,m25,m26,m27,m28,m29,m210 = [],[],[],[],[],[],[],[]
+        m34,m35,m36,m37,m38,m39,m310 = [],[],[],[],[],[],[]
+        m45,m46,m47,m48,m49,m410 = [],[],[],[],[],[]
+        m56,m57,m58,m59,m510 = [],[],[],[],[]
+        m67,m68,m69,m610 = [],[],[],[]
+        m78,m79,m710 = [],[],[]
+        m89,m810 = [],[]
         m910 = []
         for w in W:
-            mean12 = 0 
-            mean13 = 0
-            mean14 = 0
-            mean15 = 0
-            mean16 = 0
-            mean17 = 0
-            mean18 = 0
-            mean19 = 0
-            mean110 = 0
-            mean23 = 0
-            mean24 = 0
-            mean25 = 0
-            mean26 = 0
-            mean27 = 0
-            mean28 = 0
-            mean29 = 0
-            mean210 = 0
-            mean34 = 0
-            mean35 = 0
-            mean36 = 0
-            mean37 = 0
-            mean38 = 0
-            mean39 = 0
-            mean310 = 0
-            mean45 = 0
-            mean46 = 0
-            mean47 = 0
-            mean48 = 0
-            mean49 = 0
-            mean410 = 0
-            mean56 = 0
-            mean57 = 0
-            mean58 = 0
-            mean59 = 0
-            mean510 = 0
-            mean67 = 0
-            mean68 = 0
-            mean69 = 0
-            mean610 = 0
-            mean78 = 0
-            mean79 = 0
-            mean710 = 0
-            mean89 = 0
-            mean810 = 0
+            mean12,mean13,mean14,mean15,mean16,mean17,mean18,mean19,mean110 = 0,0,0,0,0,0,0,0,0
+            mean23,mean24,mean25,mean26,mean27,mean28,mean29,mean210 = 0,0,0,0,0,0,0,0
+            mean34,mean35,mean36,mean37,mean38,mean39,mean310 = 0,0,0,0,0,0,0
+            mean45,mean46,mean47,mean48,mean49,mean410 = 0,0,0,0,0,0
+            mean56,mean57,mean58,mean59,mean510 = 0,0,0,0,0
+            mean67,mean68,mean69,mean610 = 0,0,0,0
+            mean78,mean79,mean710 = 0,0,0
+            mean89,mean810 = 0,0
             mean910 = 0
             if(self.n == 2):
                 mean12 = computation(mean[0],mean[1])
@@ -349,50 +277,14 @@ class portfolio:
                 mean810 = computation(mean[7],mean[9])
                 mean910 = computation(mean[8],mean[9])
             
-            m12.append(mean12)
-            m13.append(mean13)
-            m23.append(mean23)
-            m14.append(mean14)
-            m24.append(mean24)
-            m34.append(mean34)
-            m15.append(mean15)
-            m25.append(mean25)
-            m35.append(mean35)
-            m45.append(mean45)
-            m16.append(mean16)
-            m26.append(mean26)
-            m36.append(mean36)
-            m46.append(mean46)
-            m56.append(mean56)
-            m17.append(mean17)
-            m27.append(mean27)
-            m37.append(mean37)
-            m47.append(mean47)
-            m57.append(mean57)
-            m67.append(mean67)
-            m18.append(mean18)
-            m28.append(mean28)
-            m38.append(mean38)
-            m48.append(mean48)
-            m58.append(mean58)
-            m68.append(mean68)
-            m78.append(mean78)
-            m19.append(mean19)
-            m29.append(mean29)
-            m39.append(mean39)
-            m49.append(mean49)
-            m59.append(mean59)
-            m69.append(mean69)
-            m79.append(mean79)
-            m89.append(mean89)
-            m110.append(mean110)
-            m210.append(mean210)
-            m310.append(mean310)
-            m410.append(mean410)
-            m510.append(mean510)
-            m610.append(mean610)
-            m710.append(mean710)
-            m810.append(mean810)
+            m12.append(mean12),m13.append(mean13),m14.append(mean14),m15.append(mean15),m16.append(mean16),m17.append(mean17),m18.append(mean18),m19.append(mean19),m110.append(mean110)
+            m23.append(mean23),m24.append(mean24),m25.append(mean25),m26.append(mean26),m27.append(mean27),m28.append(mean28),m29.append(mean29),m210.append(mean210)
+            m34.append(mean34),m35.append(mean35),m36.append(mean36),m37.append(mean37),m38.append(mean38),m39.append(mean39),m310.append(mean310)
+            m45.append(mean45),m46.append(mean46),m47.append(mean47),m48.append(mean48),m49.append(mean49),m410.append(mean410)
+            m56.append(mean56),m57.append(mean57),m58.append(mean58),m59.append(mean59),m510.append(mean510)
+            m67.append(mean67),m68.append(mean68),m69.append(mean69),m610.append(mean610)
+            m78.append(mean78),m79.append(mean79),m710.append(mean710)
+            m89.append(mean89),m810.append(mean810)
             m910.append(mean910)
 
         if(self.n == 2):
@@ -422,96 +314,24 @@ class portfolio:
             cov = x*y*z
             return round(np.sqrt(pow(w,2)*pow(x,2) + 2*w*(1-w)*cov + pow((1-w),2)*pow(y,2)),2)
         
-        s12 = []
-        s13 = []
-        s14 = []
-        s15 = []
-        s16 = []
-        s17 = []
-        s18 = []
-        s23 = []
-        s24 = []
-        s25 = []
-        s26 = []
-        s27 = []
-        s28 = []
-        s34 = []
-        s35 = []
-        s36 = []
-        s37 = []
-        s38 = []
-        s45 = []
-        s46 = []
-        s47 = []
-        s48 = []
-        s56 = []
-        s57 = []
-        s58 = []
-        s67 = []
-        s68 = []
-        s78 = []
-        s19 = []
-        s29 = []
-        s39 = []
-        s49 = []
-        s59 = []
-        s69 = []
-        s79 = []
-        s89 = []
-        s110 = []
-        s210 = []
-        s310 = []
-        s410 = []
-        s510 = []
-        s610 = []
-        s710 = []
-        s810 = []
+        s12,s13,s14,s15,s16,s17,s18,s19,s110 = [],[],[],[],[],[],[],[],[]
+        s23,s24,s25,s26,s27,s28,s29,s210 = [],[],[],[],[],[],[],[]
+        s34,s35,s36,s37,s38,s39,s310 = [],[],[],[],[],[],[]
+        s45,s46,s47,s48,s49,s410 = [],[],[],[],[],[]
+        s56,s57,s58,s59,s510 = [],[],[],[],[]
+        s67,s68,s69,s610 = [],[],[],[]
+        s78,s79,s710 = [],[],[]
+        s89,s810 = [],[]
         s910 = []
         for w in W:
-            var_p12 = 0
-            var_p13 = 0
-            var_p14 = 0
-            var_p15 = 0
-            var_p16 = 0
-            var_p17 = 0
-            var_p18 = 0
-            var_p19 = 0
-            var_p110 = 0
-            var_p23 = 0
-            var_p24 = 0
-            var_p25 = 0
-            var_p26 = 0
-            var_p27 = 0
-            var_p28 = 0
-            var_p29 = 0
-            var_p210 = 0
-            var_p34 = 0
-            var_p35 = 0
-            var_p36 = 0
-            var_p37 = 0
-            var_p38 = 0
-            var_p39 = 0
-            var_p310 = 0
-            var_p45 = 0
-            var_p46 = 0
-            var_p47 = 0
-            var_p48 = 0
-            var_p49 = 0
-            var_p410 = 0
-            var_p56 = 0
-            var_p57 = 0
-            var_p58 = 0
-            var_p59 = 0
-            var_p510 = 0
-            var_p67 = 0
-            var_p68 = 0
-            var_p69 = 0
-            var_p610 = 0
-            var_p78 = 0
-            var_p79 = 0
-            var_p710 = 0
-            var_p89 = 0
-            var_p810 = 0
+            var_p12,var_p13,var_p14,var_p15,var_p16,var_p17,var_p18,var_p19,var_p110 = 0,0,0,0,0,0,0,0,0
+            var_p23,var_p24,var_p25,var_p26,var_p27,var_p28,var_p29,var_p210 = 0,0,0,0,0,0,0,0
+            var_p34,var_p35,var_p36,var_p37,var_p38,var_p39,var_p310 = 0,0,0,0,0,0,0
+            var_p45,var_p46,var_p47,var_p48,var_p49,var_p410 = 0,0,0,0,0,0
+            var_p56,var_p57,var_p58,var_p59,var_p510 = 0,0,0,0,0
+            var_p67,var_p68,var_p69,var_p610 = 0,0,0,0
+            var_p78,var_p79,var_p710 = 0,0,0
+            var_p89,var_p810 = 0,0
             var_p910 = 0
             if(self.n == 2):
                 var_p12= computation_std(stdev[0],stdev[1], corr[0])
@@ -687,50 +507,14 @@ class portfolio:
                 var_p89 = computation_std(stdev[7],stdev[8], corr[42])
                 var_p810 = computation_std(stdev[7],stdev[9], corr[43])
                 var_p910 = computation_std(stdev[8],stdev[9], corr[44])
-            s12.append(var_p12)
-            s13.append(var_p13)
-            s14.append(var_p14)
-            s15.append(var_p15)
-            s16.append(var_p16)
-            s17.append(var_p17)
-            s18.append(var_p18)
-            s23.append(var_p23)
-            s24.append(var_p24)
-            s25.append(var_p25)
-            s26.append(var_p26)
-            s27.append(var_p27)
-            s28.append(var_p28)
-            s34.append(var_p34)
-            s35.append(var_p35)
-            s36.append(var_p36)
-            s37.append(var_p37)
-            s38.append(var_p38)
-            s45.append(var_p45)
-            s46.append(var_p46)
-            s47.append(var_p47)
-            s48.append(var_p48)
-            s56.append(var_p56)
-            s57.append(var_p57)
-            s58.append(var_p58)
-            s67.append(var_p67)
-            s68.append(var_p68)
-            s78.append(var_p78)
-            s19.append(var_p19)
-            s29.append(var_p29)
-            s39.append(var_p39)
-            s49.append(var_p49)
-            s59.append(var_p59)
-            s69.append(var_p69)
-            s79.append(var_p79)
-            s89.append(var_p89)
-            s110.append(var_p110)
-            s210.append(var_p210)
-            s310.append(var_p310)
-            s410.append(var_p410)
-            s510.append(var_p510)
-            s610.append(var_p610)
-            s710.append(var_p710)
-            s810.append(var_p810)
+            s12.append(var_p12),s13.append(var_p13),s14.append(var_p14),s15.append(var_p15),s16.append(var_p16),s17.append(var_p17),s18.append(var_p18),s19.append(var_p19),s110.append(var_p110)
+            s23.append(var_p23),s24.append(var_p24),s25.append(var_p25),s26.append(var_p26),s27.append(var_p27),s28.append(var_p28),s29.append(var_p29),s210.append(var_p210)
+            s34.append(var_p34),s35.append(var_p35),s36.append(var_p36),s37.append(var_p37),s38.append(var_p38),s39.append(var_p39),s310.append(var_p310)
+            s45.append(var_p45),s46.append(var_p46),s47.append(var_p47),s48.append(var_p48),s49.append(var_p49),s410.append(var_p410)
+            s56.append(var_p56),s57.append(var_p57),s58.append(var_p58),s59.append(var_p59),s510.append(var_p510)
+            s67.append(var_p67),s68.append(var_p68),s69.append(var_p69),s610.append(var_p610)
+            s78.append(var_p78),s79.append(var_p79),s710.append(var_p710)
+            s89.append(var_p89),s810.append(var_p810)
             s910.append(var_p910)
         if(self.n == 2):
             return s12
