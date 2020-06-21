@@ -1,5 +1,4 @@
 import numpy as np 
-#price la array chứa các giá của các cổ phiếu vd: [[1,2,3],[4,5,6]....]     
 
 class portfolio_n_assets:
     def __init__(self, n, mean, stdev, corr):
@@ -20,12 +19,7 @@ class portfolio_n_assets:
             w /= np.sum(w)
             arr_mean_rd.append(round(np.dot(mean ,w.T),2))
             a = stdev*w
-            #b = np.dot(a, a.T)
-            #m = ((stdev*corr).T*stdev).T
-            #kq = np.sqrt(b + 2*np.dot(w, np.dot(stdev*corr*stdev[::-1],w.T)))
             kq = np.sqrt(np.dot(w, np.dot(((stdev*corr).T*stdev),w.T)))
-            #kq = np.sqrt(b + 2*np.dot(w, np.dot(m,w.T)))
-            #kq = np.sqrt(np.dot(w*stdev, np.dot(corr,(stdev*w).T)))
             arr_std_rd.append(round(kq,2))
             weights.append(w)
         return arr_std_rd, arr_mean_rd, weights 
@@ -60,7 +54,8 @@ class portfolio_n_assets:
             mean_exp = round(r_free + (x*(M_mean-r_free))/M_std, 2)
             arr_mean_cml.append(mean_exp)
         return std_exp, arr_mean_cml
-
+    
+#price la array chứa các giá của các cổ phiếu vd: [[1,2,3],[4,5,6]....]     
 class computation_mean:
     def __init__(self, price):
         self.price = price
