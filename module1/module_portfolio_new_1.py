@@ -55,13 +55,39 @@ class portfolio_n_assets:
             arr_mean_cml.append(mean_exp)
         return std_exp, arr_mean_cml
     
-#price la array chứa các giá của các cổ phiếu vd: [[1,2,3],[4,5,6]....]     
+#price la array chứa các giá của các cổ phiếu theo ngày vd: [[1,2,3],[4,5,6]....]     
 class computation_mean:
     def __init__(self, price):
         self.price = price
     
+    def comp_list_price(self):
+        a = np.array(self.price)
+        mean_price = []
+        for i in range(len(a)):
+            for j in range(len(a[i])):
+                for x in range(j+1, len(a[i])):
+                    #mean của ln(pt+1/pt)
+                    mean_price.append(np.log(a[i][x]/a[i][j]))
+                    break
+        mean_price = list(mean_price)
+        m = []
+        list_price = []
+        star = 0
+        end = star+len(a[0])-1
+        for i_c in range(len(mean_price)):
+            if(i_c >= star and i_c < end):
+                m.append(mean_price[i_c])
+            else:
+                list_price.append(m)
+                star = end
+                end = star+len(a[0])-1
+                m = []
+                m.append(mean_price[i_c])
+        list_price.append(m)
+        return list_price
+    
     def compu_mean(self):
-        list_price = np.array(self.price)
+        list_price = np.array(self.comp_list_price())
         n = int(len(list_price))
         mean_exp = []
         std_exp = []
