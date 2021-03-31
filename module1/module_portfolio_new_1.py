@@ -118,7 +118,8 @@ class computation_mean:
         cml_std,cml_mean = portfolio_n_assets(n,mean,stdev,corr).capital_market_line()
         return cml_std,cml_mean
        
-
+#----------------------------------------------------------------------------------------------------
+#đoạn code dưới này viết tính mean, stdev, minimum risk thủ công (nên dùng đoạn code phía trên)
 W = np.arange(0, 1.01, 0.01)
 
 class portfolio:
